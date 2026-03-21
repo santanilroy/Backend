@@ -3,8 +3,8 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import path from "path";
 import { fileURLToPath } from "url";
+import express from "express";
 import connectDB from "./db/index.js";
-import { log } from "console";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -12,6 +12,8 @@ const __dirname = path.dirname(__filename);
 dotenv.config({
   path: path.join(__dirname, "../.env"),
 });
+
+const app = express();
 
 connectDB()
   .then(() => {
